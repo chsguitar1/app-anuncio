@@ -1,0 +1,20 @@
+<p *ngIf=" email !== '' ">o email é : {{email}}</p>
+<span> tamanho = {{resultado}}</span>
+<h2> objeto login {{login | json}}</h2>
+<h2>{{lista}}</h2>
+ 
+<p *ngFor="let item of lista">{{item.nome}}</p>
+
+<button (click)="removeEmail()" >Remove email</button>
+<div>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput
+             placeholder="Ex. pat@example.com">
+      
+    
+      
+    </mat-form-field>
+  </form>
+</div>
