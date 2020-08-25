@@ -12,13 +12,18 @@ import {MatCardModule} from '@angular/material/card';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { DashboardComponent } from './dashboard/dashboard.component';
 const appRotas: Routes = [
   {
   path :'', component: LoginComponent, pathMatch: 'full'
   },
   {
     path: 'register', component:RegisterComponent
+  },
+  {
+    path: 'dashboard', component:DashboardComponent
   }
   
 ]
@@ -37,7 +42,8 @@ const firebaseConfig = {
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +55,8 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    ReactiveFormsModule,
+    AngularFirestoreModule
 
     
   ],

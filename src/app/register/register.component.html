@@ -1,20 +1,20 @@
 <div class="center-screen" >
     <mat-card>
         <mat-card-title>Cadastre -se</mat-card-title>
-    <form>
+    <form [formGroup]="registerForm" >
         <mat-form-field>
             <mat-label>Email</mat-label>
-             <input matInput type="email">
+             <input matInput type="email" formControlName="email">
         </mat-form-field>
         <br>
         <mat-form-field>
             <mat-label>Senha</mat-label>
-            <input matInput type="password">
+            <input matInput type="password" formControlName="senha">
         </mat-form-field>
         <br>
         <mat-form-field>
             <mat-label>Repita a Senha</mat-label>
-            <input matInput type="password">
+            <input matInput type="password" formControlName="repitaSenha">
         </mat-form-field>
         <br>
         <button mat-button type="button" (click)="sign()">Enviar</button>

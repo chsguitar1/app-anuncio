@@ -2,20 +2,20 @@
 <div class="center-screen" >
   <mat-card>
     <mat-card-title>Login</mat-card-title>
-      <form>
+      <form [formGroup]="loginForm">
         <mat-form-field class="example-full-width">
           <mat-label>Email</mat-label>
           <input matInput
-              type="email" placeholder="Ex. pat@example.com">
+              type="email" placeholder="Ex. pat@example.com" formControlName="login">
           
         </mat-form-field>
         <br>
         <mat-form-field>
           <mat-label>Senha</mat-label>
-          <input matInput type="password" >
+          <input matInput type="password" formControlName="senha" >
         </mat-form-field>
         <br>
-        <button mat-button color="primary">Enviar</button>
+        <button mat-button color="primary" (click)="login()">Enviar</button>
 
       </form>
       <mat-card-footer><a routerLink="/register" routerLinkActive="active">Clique aqui para se cadastrar</a> </mat-card-footer>

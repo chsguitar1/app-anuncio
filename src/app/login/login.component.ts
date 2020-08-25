@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginModel} from'./login-model'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -7,43 +8,23 @@ import {LoginModel} from'./login-model'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
- email: string
-  resultado: number
-  login : LoginModel
-  lista: Array<any> = [
-    {
-     nome: 'teste 1'
-    },
-    {
-      nome: 'teste 2'
-     },
-     {
-      nome: 'teste 4'
-     }
-]
-  constructor() {
-    console.log(this.lista)
-    this.email = 'chs@email.com'
- 
-    let tamanho : number = 1.0
-    let largura = "2"
-    
-    this.resultado= tamanho * +largura
-    console.log(this.resultado)
-     this.login ={
-      senha: '123',
-      email: 'email@email.com'
-    
-    }
+export class LoginComponent {
+ loginForm: FormGroup
+  constructor(private fb: FormBuilder) {
+      this.creatForm()
+   }
+
+   creatForm(){
+     this.loginForm = this.fb.group({
+       login: ["",[Validators.email]],
+       senha:['',[Validators.minLength(6)]]
+     })
+   }
+
+   login(){
 
    }
 
-  ngOnInit(): void {
-  }
-
-  removeEmail(){
-    this.email = ''
-  }
+ 
 
 }
